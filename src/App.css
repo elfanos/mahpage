@@ -1,0 +1,112 @@
+.App {
+  text-align: center;
+  margin: 50px; }
+
+.App-logo {
+  animation: App-logo-spin infinite 20s linear;
+  height: 80px; }
+
+.App-header {
+  background-color: white;
+  height: 150px;
+  padding: 20px; }
+
+.App-title {
+  font-size: 1.5em; }
+
+.App-intro {
+  font-size: large; }
+
+.p {
+  color: rgba(0, 0, 0, 0.7); }
+
+.container-fluid .container {
+  text-align: center;
+  margin-top: 50px; }
+
+.container {
+  margin: 500px; }
+
+.exp {
+  width: 2%; }
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg); }
+  to {
+    transform: rotate(360deg); } }
+
+.scroll-up {
+  height: 40px;
+  width: 40px;
+  display: block;
+  outline: 1px solid rgba(255, 255, 255, 0.08);
+  position: relative;
+  cursor: pointer; }
+  .scroll-up svg line {
+    stroke-width: 1;
+    stroke: #aaa;
+    fill: none;
+    stroke-dasharray: 20;
+    -webkit-transition: all .4s ease;
+    transition: all .4s ease; }
+  .scroll-up:hover svg line.top {
+    -webkit-transform: translateX(-40px);
+    transform: translateX(-40px); }
+  .scroll-up:hover svg line.bottom {
+    -webkit-transform: translateX(40px);
+    transform: translateX(40px); }
+  .scroll-up:hover svg line.left {
+    -webkit-transform: translateY(40px);
+    transform: translateY(40px); }
+  .scroll-up:hover svg line.right {
+    -webkit-transform: translateY(-40px);
+    transform: translateY(-40px); }
+
+.scroll-up .left-bar {
+  position: absolute;
+  z-index: 1;
+  background-color: transparent;
+  top: 19px;
+  left: 5px;
+  width: 18px;
+  display: block;
+  transform: rotate(-45deg); }
+  .scroll-up .left-bar:after {
+    content: "";
+    background-color: #666;
+    width: 18px;
+    height: 1px;
+    display: block;
+    border-radius: 1px;
+    transition: all 0.5s cubic-bezier(0.25, 1.7, 0.35, 1.5);
+    transform-origin: right center;
+    z-index: -1; }
+
+.scroll-up .right-bar {
+  position: absolute;
+  z-index: 1;
+  background-color: transparent;
+  top: 19px;
+  left: 17px;
+  width: 18px;
+  display: block;
+  transform: rotate(45deg);
+  border-radius: 2px; }
+  .scroll-up .right-bar:after {
+    content: "";
+    background-color: #666;
+    width: 18px;
+    height: 1px;
+    display: block;
+    border-radius: 1px;
+    transition: all 0.5s cubic-bezier(0.25, 1.7, 0.35, 1.5);
+    transform-origin: left center;
+    z-index: -1; }
+
+.scroll-up:hover {
+  transition: all .1s; }
+  .scroll-up:hover .left-bar:after {
+    transform: rotate(-10deg); }
+  .scroll-up:hover .right-bar:after {
+    transform: rotate(10deg); }
