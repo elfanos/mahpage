@@ -13,7 +13,8 @@ import styles from '../animation/css.animation';
 import { Provider } from 'react-redux';
 import { PersistGate } from 'redux-persist/integration/react';
 import  Store  from '../states/store';
-export const ApplicationRouter = () => {
+export const ApplicationRouter = (  ) => {
+    //const locationKey = props.location.pathname;
     return(
         <Provider store ={Store.store} >
             <PersistGate persistor={Store.persistor}>

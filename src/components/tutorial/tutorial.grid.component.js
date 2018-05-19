@@ -6,9 +6,8 @@ import { PropTypes } from 'prop-types';
 import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { Col, Row, Grid } from 'react-bootstrap';
-import { TransitionGroup, CSSTransition } from 'react-transition-group';
-import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
-
+import { Link, Route } from 'react-router-dom';
+import ItemTutorialView from './items/item.view';
 class TutorialGridComponent extends React.Component {
 
     constructor(props) {
@@ -25,34 +24,31 @@ class TutorialGridComponent extends React.Component {
     render() {
         if (this.state.loaded === true) {
             return (
-
                 <div>
-                    <Col sm={4} md={4}
-                         style={{
-                             ...style.tutorialGridPadding,
-                         }}
-                    >
-                        <div
-                            style={{
-                                ...style.tutorialGridFill,
-                                backgroundImage: 'linear-gradient('
-                                + 'rgba(0, 0, 0, 0.4),'
-                                + 'rgba(0, 0, 0, 0.4)'
-                                + '), url(' + this.props.data.image + ')',
-                                backgroundSize: 'cover',
-                                WebkitFilter: 'saturate(2)'
-                            }}
+                        <Col sm={4} md={4}
+                             style={{
+                                 ...style.tutorialGridPadding,
+                             }}
                         >
-                        </div>
-                        <p style = {{
-                            ...style.tutorialHeader
-                        }}>
-                            {this.props.data.header}
-                        </p>
-                    </Col>
+                            <div
+                                style={{
+                                    ...style.tutorialGridFill,
+                                    backgroundImage: 'linear-gradient('
+                                    + 'rgba(0, 0, 0, 0.4),'
+                                    + 'rgba(0, 0, 0, 0.4)'
+                                    + '), url(' + this.props.data.image + ')',
+                                    backgroundSize: 'cover',
+                                    WebkitFilter: 'saturate(2)'
+                                }}
+                            >
+                            </div>
+                            <p style = {{
+                                ...style.tutorialHeader
+                            }}>
+                                {this.props.data.header}
+                            </p>
+                        </Col>
                 </div>
-
-
             );
         }
         else {
@@ -84,7 +80,8 @@ const style = {
 TutorialGridComponent.propTypes = {
     data: PropTypes.object.isRequired,
     duration: PropTypes.number.isRequired,
-    index: PropTypes.number.isRequired
+    index: PropTypes.number.isRequired,
+    id: PropTypes.string.isRequired
 };
 
 export default TutorialGridComponent;

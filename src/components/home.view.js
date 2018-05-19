@@ -6,43 +6,69 @@ import React, { Component } from 'react';
 import '../App.scss';
 import test from '../vendor/test.jpg';
 import NavBarView from './navbar.view';
-import { Col, Row, Grid } from 'react-bootstrap';
+import { Col, Row, Grid, Jumbotron } from 'react-bootstrap';
 import '../lib/css/animation.transition.css';
 import styles from '../animation/css.animation';
 import { Link, withRouter } from 'react-router-dom';
-import ContentView from '../routes/content.routes';
+import ContentRoutes from '../routes/content.routes';
 import { connect } from 'react-redux';
 import {PropTypes} from 'prop-types';
-import { clickAction } from '../states/actions/navbar.actions';
+import { bootstrapUtils } from 'react-bootstrap/lib/utils'
 
-const mapDispatchToProps = ( dispatch ) => {
-      return {
-          onNavClick: ( button ) => { dispatch( clickAction( button ) ) }
-      }
-};
-
-const HomeView = ({ onNavClick }) =>{
+bootstrapUtils.addStyle(Jumbotron, 'custom');
+const HomeView = ( props ) => {
+    const locationKey = props.location.pathname;
     return (
-        <div
-            style={{
-                ...styles.fill,
-                background: "white"
-            }}
-        >
-            <Grid center="md" id="appPage">
-                <Col sm={3} md={3}>
-                    <NavBarView/>
-                </Col>
-                <Col sm={9} md={9}>
-                    <ContentView/>
-                </Col>
-            </Grid>
+        <div>
+            <style type="text/css">{`
+              .jumbotron p {
+                font-size: 15px;
+              }
+              .jumbotron h1 {
+                font-size: 35px;
+              }
+              .jumbotron h2 {
+                font-size: 20px;
+                font-weight: 300;
+              }
+            `}</style>
+            <div
+                style={
+                    {
+                    ...styles.fill,
+                    background: "white"
+                    }
+
+                }
+                id="containerDiv"
+            >
+                <Grid center="container" id="appPage"
+                    style={{
+                        paddingTop: '0px',
+                        paddingBottom: '0px',
+                        marginBottom: '0px',
+                        marginTop: '40px'
+                    }}
+                   bsStyle="custom"
+                >
+                    <Col sm={2} md={2}>
+                        <NavBarView currPath={locationKey} appProps={props}/>
+                    </Col>
+                    <Col sm={10} md={10}
+                        style = {{
+                            paddingLeft: '50px',
+                            paddingRight: '50px'
+                        }}
+                    >
+                        <ContentRoutes props={props}/>
+                    </Col>
+                </Grid>
+            </div>
         </div>
     );
 };
 
 HomeView.propTypes = {
-    onNavClick: PropTypes.func,
 };
 
-export default withRouter(connect(null, mapDispatchToProps)(HomeView));
+export default withRouter(HomeView);

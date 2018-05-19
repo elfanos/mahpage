@@ -110,3 +110,9 @@
     transform: rotate(-10deg); }
   .scroll-up:hover .right-bar:after {
     transform: rotate(10deg); }
+
+.jumbotron p {
+  margin-bottom: 15px;
+  font-size: 17px;
+  font-weight: 300;
+}

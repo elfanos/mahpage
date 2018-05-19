@@ -3,78 +3,37 @@
  */
 import React from 'react';
 import { PropTypes } from 'prop-types';
-import { withRouter } from 'react-router-dom';
-import { connect } from 'react-redux';
-import { clickAction } from '../../states/actions/navbar.actions';
-import {TransitionGroup, CSSTransition } from 'react-transition-group';
-import * as type from '../../states/constants/navbar.contants';
 import { Col, Row, Grid } from 'react-bootstrap';
 import TutorialGridComponent from './tutorial.grid.component';
-import spotifyapi  from '../../vendor/spotifyapi.jpg';
 import { tutorialsArray } from '../../objects/tutorial.objects';
-import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
+import { Link, Route } from 'react-router-dom';
 
 let index = 0;
-const tutorialAdapter = ( data ) => {
-    return (
-        <Col sm={4} md={4}
-                style={{
-                    ...style.tutorialGridPadding,
-                }}
-        >
-            {/*console.log(data)*/};
-                <TutorialGridComponent
-                    image={data.image}
-                    header={data.header}
-                />
-        </Col>
-    );
-};
-
-
-let delayTransition = ( callback, data ) => {
-    setTimeout(() => {
-            console.log("data");
-            callback(tutorialAdapter( data ));
-        },
-    index*300);
-    index += 1;
-    if(index === tutorialsArray().size){
-        index = 0;
-    }
-};
-
-
-const mapStateToProps = ( state ) => {
-    return {
-        getAdapters: async () => {
-            tutorialsArray().map(data => {
-                    console.log(delayTransition(
-                        (data) => {
-                            return (data);
-                        }
-                        , data
-                    ));
-                }
-            )
-        }
-    }
-};
-
-const TutorialView = ( { getAdapters, somthing } ) =>{
+const TutorialView = ( ) =>{
 
     return(
         <div
         >
-            <Row md="">
-                <h3>Tutorials</h3>
+            <Row md=""
+            >
+                <h1
+                    style={{
+                        paddingRight: '15px',
+                        paddingLeft: '15px',
+                        textAlign: 'left'
+                    }}
+                >
+                    Tutorials
+                </h1>
                 <Col md={12}
                      style={style.tutorialFill}
                 >
                         {
                             tutorialsArray().map(function(item,i) {
                                 return (
-                                    <TutorialGridComponent key={i} data={item} duration={100} index={i}/>
+                                    <Link to={`tutorials/${item.id}`} key={item.id}>
+                                        <TutorialGridComponent key={i} data={item} duration={100} index={i} id={item.id}/>
+                                    </Link>
                                 );
                             })
                         }
@@ -84,16 +43,13 @@ const TutorialView = ( { getAdapters, somthing } ) =>{
     );
 
 };
-TutorialView.propTypes = {
-    getAdapters: PropTypes.func,
-};
 const style = {
     tutorialFill: {
-        marginTop: "50px",
+        marginTop: "0",
     },
     tutorialGridPadding: {
         paddingRight: '0px',
-        paddingLeft: '0px'
+        paddingLeft: '0px',
     },
 };
-export default withRouter(connect(mapStateToProps, null)(TutorialView));
+export default TutorialView;

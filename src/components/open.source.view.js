@@ -15,6 +15,7 @@ class OpenSourceView extends React.Component{
         this.props.dispatch(clickAction(type.OPEN_SOURCE));
     }
     render(){
+        console.log("hola in open source");
         return(
             <p>OPEN SOURCE</p>
         );

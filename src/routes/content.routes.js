@@ -8,15 +8,17 @@ import TutorialView from '../components/tutorial/tutorial.view';
 import { withRouter } from 'react-router-dom';
 import { TransitionGroup, CSSTransition } from 'react-transition-group';
 import { Route, Switch } from 'react-router-dom';
+import ItemTutorialView from '../components/tutorial/items/item.view';
 
-export const ContentView = ( { location } ) => {
-
+export const ContentRoutes = ( props ) => {
+    const locationKey = props.location.pathname;
     return (
         <TransitionGroup>
-            <CSSTransition key={location.key} classNames="fade" timeout={250}>
-                <Switch location={location}>
+            <CSSTransition key={locationKey} classNames="fade" timeout={250}>
+                <Switch location={props.location}>
                     <Route exact path="/" component={WorkView}/>
                     <Route exact path="/tutorials" component={TutorialView}/>
+                    <Route exact path="/tutorials/:tutorialId" render={() => <ItemTutorialView height="2"/>} />
                     <Route exact path="/opensource" component={OpenSourceView} />
                     <Route exact path="/work" component={WorkView} />
                 </Switch>
@@ -25,4 +27,4 @@ export const ContentView = ( { location } ) => {
     );
 
 };
-export default withRouter(ContentView);
+export default withRouter(ContentRoutes);
