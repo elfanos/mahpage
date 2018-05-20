@@ -47,7 +47,8 @@ const HomeView = ( props ) => {
                         paddingTop: '0px',
                         paddingBottom: '0px',
                         marginBottom: '0px',
-                        marginTop: '40px'
+                        marginTop: '40px',
+                        maxWidth: '900px'
                     }}
                    bsStyle="custom"
                 >

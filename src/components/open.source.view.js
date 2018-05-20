@@ -17,7 +17,7 @@ class OpenSourceView extends React.Component{
     render(){
         console.log("hola in open source");
         return(
-            <p>OPEN SOURCE</p>
+            <p>Gonna add some code here--></p>
         );
     }
 }

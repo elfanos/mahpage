@@ -8,23 +8,16 @@ import TutorialGridComponent from './tutorial.grid.component';
 import { tutorialsArray } from '../../objects/tutorial.objects';
 import { Link, Route } from 'react-router-dom';
 
-let index = 0;
 const TutorialView = ( ) =>{
 
     return(
         <div
+            style={{
+                marginTop: "60px"
+            }}
         >
             <Row md=""
             >
-                <h1
-                    style={{
-                        paddingRight: '15px',
-                        paddingLeft: '15px',
-                        textAlign: 'left'
-                    }}
-                >
-                    Tutorials
-                </h1>
                 <Col md={12}
                      style={style.tutorialFill}
                 >

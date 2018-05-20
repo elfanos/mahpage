@@ -5,7 +5,7 @@ import React from 'react';
 import HomeView from '../components/home.view';
 import OpenSourceView from '../components/open.source.view';
 import TutorialView from '../components/tutorial/tutorial.view';
-import WorkView from '../components/work.view';
+import WorkView from '../components/work/work.view';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import { TransitionGroup, CSSTransition } from 'react-transition-group';
 import '../lib/css/animation.transition.css';

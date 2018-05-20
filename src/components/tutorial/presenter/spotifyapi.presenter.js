@@ -34,7 +34,11 @@ const SpotifyApiPresenter = ( { bodyHeight } ) => {
         <div style={{
             ...styles
         }}>
-            <h1>Spotify API with Kotlin, React and Redux</h1>
+            <h1
+                style={{
+                    textAlign: 'left'
+                }}
+            >Spotify API with Kotlin, React and Redux</h1>
             <div style={{
                 textAlign:'left',
                 marginTop: '30px'
@@ -72,7 +76,7 @@ const SpotifyApiPresenter = ( { bodyHeight } ) => {
                 <p>
                     As a first step go to { refPresenter( "https://start.spring.io/", "spring initializer" ) }
                 </p>
-                <img src={generatesringboot} width="500" height="400" />
+                <img src={generatesringboot} className="img-presenter" width="500" height="400" />
                 <p>
                     Following page will appear, make a identical project as the one shown in the figure above.
                     Maven can be used instead of gradle, but be aware that I will be using Gradle in this tutorial. <br/><br/>
@@ -80,7 +84,7 @@ const SpotifyApiPresenter = ( { bodyHeight } ) => {
                     initialize the spring-boot-application. <br/>
                     Unzip the file, copy the content located inside the directory to the server director. Paste all the files inside the server folder that you previously created.
                 </p>
-                <img src={springbootfiles} width="500" height="400" />
+                <img src={springbootfiles} className="img-presenter" width="500" height="400" />
                 <h2>Initialize kotlin & react</h2>
                 <p>
                     Let’s initialize the front-end part, we are going to use react and the create-react-app command.
@@ -90,12 +94,12 @@ const SpotifyApiPresenter = ( { bodyHeight } ) => {
                     <br/>
                     Finally we got a project now let's add some dependencies to our build.gradle.<br/>
                     <i>//Server</i><br/>
-                    <code>
-                        compile('org.springframework.boot:spring-boot-starter-tomcat')
-                    </code><br/>
-                    <code>
-                        compile("org.springframework.boot:spring-boot-starter-data-rest")
-                    </code><br/>
+                    <PrismCode component="pre" className="language-javascript">
+                        {`
+compile('org.springframework.boot:spring-boot-starter-tomcat')
+compile("org.springframework.boot:spring-boot-starter-data-rest")
+`}
+                    </PrismCode>
                     If you prefer to use a pre initialized project you can fork it on github:
                     { refPresenter("https://github.com/elfanos/spotify-api-with-kotlin-react", "spotify-api-with-kotlin-react") }
                 </p>
@@ -120,11 +124,17 @@ const SpotifyApiPresenter = ( { bodyHeight } ) => {
                     { refPresenter( "https://github.com/thelinmichael/spotify-web-api-java", "spotify-web-api-java" ) }
                     <br/>
                     Add the following in your build.gradle file inside the dependencies bracket <br/>
-                    <code>
-                        compile 'se.michaelthelin.spotify:spotify-web-api-java:2.0.2'
-                    </code><br/><br/>
+                    <PrismCode component="pre" className="language-javascript">
+                        {`
+ compile 'se.michaelthelin.spotify:spotify-web-api-java:2.0.2'
+`}
+                    </PrismCode>
                     After the gradle downloads is complete, add three new directories inside<br/>
-                    <code>src/main/kotlin/com.tutorial.spotifyapikotlin/</code><br/>
+                    <PrismCode component="pre" className="language-javascript">
+                        {`
+src/main/kotlin/com.tutorial.spotifyapikotlin/
+`}
+                    </PrismCode>
                     Name them service,controller and authorization.
                     Inside the service add a folder called spotify and inside the folder create a kotlin class called SpotifyService.
                     Inside the controller and authorization repeat the steps but instead name the kotlin classes to SpotifyController, and SpotifyAuthorization
@@ -138,7 +148,7 @@ const SpotifyApiPresenter = ( { bodyHeight } ) => {
                     { refPresenter( "https://beta.developer.spotify.com/dashboard/login", "spotify developer page" ) } <br/>
                     Login in to get access to your dashboard. If you dont have a spotify account you need to create one.
                 </p>
-                <img src={spotifydashboard} width="500" height="350" />
+                <img src={spotifydashboard} className="img-presenter" width="500" height="350" />
                 <p>
                     <br/>
                     The following figure should illustrate the dashboard for your app.
@@ -146,26 +156,30 @@ const SpotifyApiPresenter = ( { bodyHeight } ) => {
                     <br/>
                     Before we add the Client id and secret to our application, we have to do some modification for the auth callback url.
                     Go to EDIT SETTINGS and add the following URL to the Redirect URIs. <br/>
-                    <code>
-                        http://localhost:3000/auth/spotify/callback
-                    </code><br/><br/>
+                    <PrismCode component="pre" className="language-javascript">
+                        {`
+http://localhost:3000/auth/spotify/callback
+`}
+                    </PrismCode>
                 </p>
-                <img src={callbackuri} width="500" height="350" />
+                <img src={callbackuri} className="img-presenter" width="500" height="350" />
                 <h2>SpotifyAuthorization</h2>
                 <p>
                     Get your Client ID and secret so we can start adding some code in our SpotifyAuthorization class.
                     Before we add the authorization code to the authorization class we got to declare our
                     values from the spotify dashboard (Clientid, Secret and Redirect URI) in
-                    the application.properties file. Which is located under the resources folder inside your project.<br/><br/>
-                    <code>
-                        spotify.clientid=YOUR-CLIENT-ID
-                    </code><br/>
-                    <code>
-                        spotify.clientsecret=YOUR-SECRET
-                    </code><br/>
-                    <code>
-                        spotify.redirect.uri=http://localhost:3000/auth/spotify/callback
-                    </code><br/><br/>
+                    the application.properties file. Which is located under the resources folder inside your project.<br/>
+                    <PrismCode component="pre" className="language-javascript">
+{`
+spotify.clientid=YOUR-CLIENT-ID
+spotify.clientsecret=YOUR-SECRET
+
+spotify.redirect.uri=
+http://localhost:3000/auth/spotify/callback
+
+
+`}
+                    </PrismCode>
                     The authorization class will contain all the building calls to the spotify api. Michael makes it painless when it comes to create these requests since, we do not need to create a model for the html body, it is already implemented in the package.
                     Add the following code inside SpotifyAuthorization class.
                     Remember to add the right callback uri, the one you defined in the spotify dashboard.<br/>
@@ -333,8 +347,11 @@ class SpotifyController {
                 <p>
                     You can test it now by pasting
                     <br/>
-                    <code>http://localhost:8080/api/spotify/callback/uri
-                    </code> <br/>
+                    <PrismCode component="pre" className="language-javascript">
+{`
+http://localhost:8080/api/spotify/callback/uri
+`}
+                    </PrismCode>
                     on your browser.
                     The result should be a url which takes you to the spotify login page.
                 </p>
@@ -347,7 +364,7 @@ class SpotifyController {
                     Lets dig into the React-part, where we can see the authorization flow using the developer console on the browser.
                     What I normal do in react is to make a good structure in the src directory.
                 </p>
-                <img src={structurereact} width="200" height="200" /><br/><br/>
+                <img src={structurereact} className="img-presenter" width="300" height="300" /><br/><br/>
                 <p>
                     To make it easier to follow this part create the following folder structure visualized in the picture above.
                     In the component folder create a login.view.js and add the following code
@@ -499,7 +516,7 @@ export default LoginView;
                 <p>
                     This make it possible for us to integrate the kotlin server with the front-end.
                 </p>
-                <img src={packagejsonfile} width="200" height="200" /><br/><br/>
+                <img src={packagejsonfile} className="img-presenter" width="300" height="300" /><br/><br/>
                 <p>
                     Here is my package.json file.
 
@@ -648,9 +665,13 @@ export default SpotifyAuthController;
                 spotify service inside kotlin.
                 However the format inside userData.token is not optimal:
                 </p>
-                <code>
-                    {' {token: "["BQDQuZI2vBjF0hwqyr8pEQ40wiPGdSN2wFWtNxNa1ibsrrtN…_fnkJeJhM90arxVrOJmIVx3G_V3dJnyE2NDJEGv-WCSIPm4"]"} '}
-                </code><br/><br/>
+                <PrismCode component="pre" className="language-javascript">
+                    {`
+{token: "["BQDQuZI2vBjF0hwqyr8pEQ40wiPGdSN2wFWtNxNa1ibsrrtN…_
+fnkJeJhM90arxVrOJmIVx3G_V3dJnyE2NDJEGv-WCSIPm4"]"}
+`}
+                </PrismCode>
+
                 <p>
                     We fix it by implementing this following function:
                 </p>
@@ -720,16 +741,17 @@ export default SpotifyAuthController;
                     array blocks that was returned from the token request.
                     Now the print should look like this:
                 </p>
-                <code>
-                    {
-                    '   token:' +
-                    '       accessToken:"BQC-g1z7h4nUbFe3xi0zaEMBepjH2qlb2R85ZpV89DM20SbX3Og1' +
-                    '       noDEcB350ZWTuZmRYliqcQv5HXO9C7qMEXqEsynKgs9Dhc-Gi36Xcur14fdbk0r5s' +
-                    '       -ouVgAfSMC70kV-S1yxeu4tFzqNR4o"' +
-                    '       refreshToken:"AQBydd0qKJvT6Mkg6sU6f-YpOFuMHJTSFY2uGBd3QbWvgnjQ8Yc' +
-                    '       94EnM7YG4h7bQNOyybCB4XvwFH1athhTGYKBy085mUDIPF9dqiFXkMnorXE_Nai' +
-                    '       tSlOdKGcz-7B7f5t8"' }
-                </code>
+                <PrismCode component="pre" className="language-javascript">
+                    {`
+token:
+     accessToken:"BQC-g1z7h4nUbFe3xi0zaEMBepjH2qlb2R85ZpV89DM20SbX3Og1
+     noDEcB350ZWTuZmRYliqcQv5HXO9C7qMEXqEsynKgs9Dhc-Gi36Xcur14fdbk0r5s
+     -ouVgAfSMC70kV-S1yxeu4tFzqNR4o"' +
+     refreshToken:"AQBydd0qKJvT6Mkg6sU6f-YpOFuMHJTSFY2uGBd3QbWvgnjQ8Yc
+     94EnM7YG4h7bQNOyybCB4XvwFH1athhTGYKBy085mUDIPF9dqiFXkMnorXE_Nai
+     tSlOdKGcz-7B7f5t8"'
+`}
+                </PrismCode>
                 <h2>Redux and redirect</h2>
                 <p>
                     Lets store this token with some user data using redux and redirect to the home page:

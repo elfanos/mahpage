@@ -128,13 +128,13 @@ const SafeLink = ( props, path, text, id ) =>
 const NavBarView = ( props ) => {
     return (
         <div style={{
-            position: 'fixed',
-            textAlign: 'center',
-            fontSize: '17px'
-        }}>
+        }}
+        className="nav-bar-react"
+        >
             <Row center="md">
                 <ul style={{
-                    listStyle: 'none'
+                    listStyle: 'none',
+                    paddingLeft: '0px'
                 }}>
                     <li>
                         <div id="imageHeader"

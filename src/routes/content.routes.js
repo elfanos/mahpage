@@ -3,7 +3,7 @@
  */
 import React from 'react';
 import OpenSourceView from '../components/open.source.view';
-import WorkView from '../components/work.view';
+import WorkView from '../components/work/work.view';
 import TutorialView from '../components/tutorial/tutorial.view';
 import { withRouter } from 'react-router-dom';
 import { TransitionGroup, CSSTransition } from 'react-transition-group';
