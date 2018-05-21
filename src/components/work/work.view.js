@@ -161,12 +161,9 @@ class WorkView extends React.Component {
                             </Col>
                             <Col sm ={8} md={8}>
                                 <p>
-                                    In this project I was assigned to fetch a e-book api. In the project I learned a lot
-                                    about coding in ruby and rails.
-                                    Also how to structure a project involving a group of engineers.
-                                    I worked during this project only in the back-end section.
-                                    It was about 1 month of work and with my friend we managed to achive a
-                                    good interface as well as a good api code for retrive all information necessary from the api.
+                                    In this project I developed an api for ebooks by the help of Elib. In the project I learned a lot
+                                    about coding in ruby and rails, how to structure a project involving a group of engineers.
+                                    I worked during this project as a back-end developer.
                                 </p>
                             </Col>
                         </Row>
@@ -192,7 +189,6 @@ class WorkView extends React.Component {
                                     This was my first ruby on rails project from start to finish.
                                     I developed the site with a friend during a summer internship.
                                     The site is for artist that can upload music, a lot like soundcloud.
-                                    I did mostly front-end and developed a global music player that was not released on the site.
                                 </p>
                             </Col>
                         </Row>
@@ -215,9 +211,9 @@ class WorkView extends React.Component {
                             </Col>
                             <Col sm ={8} md={8}>
                                 <p>
-                                   The famouse game Yatzy developed for android smart phones. In this project
-                                    I developed alone a game that use openGL to visualize a 3D-throw. The game consist of
-                                    two fragments one is the game board and the other is the scorekeeper. The code is avaible on github.
+                                    The famouse game Yatzy developed for android smart phones. In this project
+                                    I developed a game that use openGL to visualize a 3D-throw. The game consist of
+                                    two fragments one is the game board and the other is the scorekeeper. The code is available on github.
                                 </p>
                             </Col>
                         </Row>
@@ -240,16 +236,13 @@ class WorkView extends React.Component {
                             </Col>
                             <Col sm ={8} md={8}>
                                 <p>
-                                    In this project we developed a service for the ambulance. With the purpose
-                                    of applying better interaction while talking to a patient in need.
-                                    We used in the project google glasses as a tool for navigation and reading information about the patient.
-                                    In the project we used a webservice which send out information to the
-                                    ambulance personals.
-                                    Then we had an android application developed for a normal user.
-
+                                    In this project we developed a navigation service for the ambulance.
+                                    In this project we used google glasses for the application.
+                                    Then we developed an android application developed for normal users.
                                 </p>
                             </Col>
                         </Row>
+                        <hr/>
                     </div>
                 </div>
             </div>
