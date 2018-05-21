@@ -161,6 +161,15 @@ const NavBarView = ( props ) => {
                     <li>
                         { SafeLink(props, "/opensource", type.CODE, type.CODE) }
                     </li>
+                    <li>Follow me</li>
+                    <li>
+                        <a href="https://github.com/elfanos">
+                            <div><i className="fa fa-github"></i></div>
+                        </a>
+                        <a href="https://twitter.com/pandam0ve">
+                            <div><i className="fa fa-twitter"></i></div>
+                        </a>
+                    </li>
                 </ul>
             </Row>
         </div>
