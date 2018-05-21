@@ -57,10 +57,10 @@ const SpotifyApiPresenter = ( { bodyHeight } ) => {
                     Start the terminal, navigate to the wanted location of your app,
                     then add the following folders.<br/>
                     <code>
-                        mkdir spotify-api-with-kotling-react-redux<br/>
+                        mkdir spotify-api-with-kotlin-react-redux<br/>
                     </code>
                     <code>
-                        cd spotify-api-with-kotling-react-redux <br/>
+                        cd spotify-api-with-kotlin-react-redux <br/>
                     </code>
                 </p>
                 <p>
@@ -88,7 +88,7 @@ const SpotifyApiPresenter = ( { bodyHeight } ) => {
                 <h2>Initialize kotlin & react</h2>
                 <p>
                     Let’s initialize the front-end part, we are going to use react and the create-react-app command.
-                    Navigate to the app folder inside the spotify-api-with-kotling-react-redux folder.
+                    Navigate to the app folder inside the spotify-api-with-kotlin-react-redux folder.
                     Initialize the create react app using this command.<br/>
                     <code>npx create-react-app spotify-react-kotlin</code>
                     <br/>
@@ -529,7 +529,7 @@ export default LoginView;
                 </p>
                 <h2>Refresh and access token</h2>
                 <p>
-                    Now that we have the login page fixed, we need to store the refresh token and access token in our react app.
+                    Now that we are done with the login page, we need to store the refresh token and access token in a state in our react app.
                     We will use redux for this but first we need to define a new route
                     for the callback given by spotify when a user log in.
                     We defined earlier a redirect uri, this uri will be used and added to a route component inside the react application.
@@ -1095,7 +1095,7 @@ class SpotifyController {
                     SpotifyService based on a request builded by a token,
                     which is our token that we send in from the react application.
                     Finally we can skip those ugly variables clientID and clientSecret.
-                    The function returns a User which is a class from the micheline package, that is a user in json.
+                    The function returns a User which is a class from the spotify web api package, which is a user object in json format.
                     Now we need to gather the data and add it to the redux object inside the react application.
                     Let’s do it by going back to the react app and add some fetch code.
                     <br/>
