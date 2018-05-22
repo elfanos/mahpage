@@ -3,11 +3,7 @@
  */
 import React from 'react';
 import { PropTypes } from 'prop-types';
-import { withRouter } from 'react-router-dom';
-import { connect } from 'react-redux';
-import { Col, Row, Grid } from 'react-bootstrap';
-import { Link, Route } from 'react-router-dom';
-import ItemTutorialView from './items/item.view';
+import { Col } from 'react-bootstrap';
 class TutorialGridComponent extends React.Component {
 
     constructor(props) {
@@ -16,11 +12,9 @@ class TutorialGridComponent extends React.Component {
             loaded: false,
         }
     }
-
     componentDidMount() {
         setTimeout(() => this.setState({loaded:true}), this.props.duration*this.props.index );
     };
-
     render() {
         if (this.state.loaded === true) {
             return (
@@ -56,7 +50,6 @@ class TutorialGridComponent extends React.Component {
         }
     };
 }
-
 const style = {
     tutorialGridPadding: {
         paddingRight: '0px',

@@ -2,17 +2,14 @@
  * Created by Rasmus on 2018-05-11.
  */
 
-import React, { Component } from 'react';
+import React from 'react';
 import '../App.scss';
-import test from '../vendor/test.jpg';
 import NavBarView from './navbar.view';
-import { Col, Row, Grid, Jumbotron } from 'react-bootstrap';
+import { Col, Grid, Jumbotron } from 'react-bootstrap';
 import '../lib/css/animation.transition.css';
 import styles from '../animation/css.animation';
-import { Link, withRouter } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 import ContentRoutes from '../routes/content.routes';
-import { connect } from 'react-redux';
-import {PropTypes} from 'prop-types';
 import { bootstrapUtils } from 'react-bootstrap/lib/utils'
 
 bootstrapUtils.addStyle(Jumbotron, 'custom');
@@ -67,9 +64,6 @@ const HomeView = ( props ) => {
             </div>
         </div>
     );
-};
-
-HomeView.propTypes = {
 };
 
 export default withRouter(HomeView);

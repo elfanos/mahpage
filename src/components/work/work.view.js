@@ -2,18 +2,15 @@
  * Created by Rasmus on 2018-05-11.
  */
 import React from 'react';
-import { PropTypes } from 'prop-types';
 import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { Col, Row, Grid } from 'react-bootstrap';
-import { clickAction } from '../../states/actions/navbar.actions';
+import { Col, Row } from 'react-bootstrap';
 import googleglass from '../../vendor/work/googleglass.jpeg';
 import thirty from '../../vendor/work/thirty.jpg';
 import magazinos from '../../vendor/work/magazinos.jpeg';
 import onebas from '../../vendor/work/onebas.jpeg';
 import * as type from './work.contants';
 import * as color from'../../objects/color.scheme';
-import { Link, NavLink } from 'react-router-dom';
 
 const size = ( x ) => {
     if( x % 2 === 0 ){ return { fontSize: '28px' } }
@@ -91,17 +88,6 @@ const componentNotActive = ( value, id, i ) => {
         style:{
             ...interact(),
             ...size( i ),
-        }
-    }, value);
-};
-const componentActive = ( value, id, i ) => {
-
-    return React.createElement('p', {
-        key:id,
-        id: id,
-        style:{
-            ...interact(),
-            fontSize: '24px'
         }
     }, value);
 };

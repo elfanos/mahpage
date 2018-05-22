@@ -1,7 +1,3 @@
-/**
- * Created by Rasmus on 2018-05-11.
- */
-import React from 'react';
 
 const styles = {};
 

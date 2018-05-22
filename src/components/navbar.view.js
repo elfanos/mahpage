@@ -1,10 +1,9 @@
 import React from 'react';
-import Radium from 'radium'
 import '../App.scss';
-import test from '../vendor/test.jpg';
-import { Col, Row }  from 'react-bootstrap';
+import myPotrait from '../vendor/mypotrait.jpg';
+import { Row }  from 'react-bootstrap';
 import '../lib/css/animation.transition.css';
-import { Link, NavLink } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import * as color from '../objects/color.scheme';
 import * as type from './navbar.constants';
 
@@ -142,7 +141,7 @@ const NavBarView = ( props ) => {
                                  marginBottom: '20px'
                              }}
                         >
-                            <img src={test} width="100" height="100"/>
+                            <img src={myPotrait} width="100" height="100"/>
                         </div>
                     </li>
                     <li>Hi there!</li>
